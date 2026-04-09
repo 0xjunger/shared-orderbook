@@ -1,6 +1,6 @@
 # Shared Orderbook
 
-Cross-chain limit order book on Sync Rollups Composer (SRC). Orders live on L2 for cheap gas and fast matching; collateral custodies on L1 for maximum security. Settlement is atomic — a single L2 transaction synchronously locks, transfers, and unlocks L1 Vault balances.
+Cross-chain limit order book on [Sync Rollups Composer (EEZ)](https://github.com/eez-association/sync-rollups-composer). Orders live on L2 for cheap gas and fast matching; collateral custodies on L1 for maximum security. Settlement is atomic — a single L2 transaction synchronously locks, transfers, and unlocks L1 Vault balances.
 
 ## Architecture
 
