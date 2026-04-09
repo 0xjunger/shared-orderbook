@@ -1,0 +1,21 @@
+# Compiler files
+cache/
+out/
+
+# Node
+node_modules/
+dist/
+
+# Ignores development files
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# opencode
+.opencode

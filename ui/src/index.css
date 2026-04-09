@@ -1,0 +1,389 @@
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-0: #0b0e11;
+  --bg-1: #12161c;
+  --bg-2: #1a1f27;
+  --bg-3: #242a33;
+  --border: #2b3139;
+  --text-0: #eaecef;
+  --text-1: #b7bdc6;
+  --text-2: #707a8a;
+  --green: #0ecb81;
+  --green-dim: rgba(14, 203, 129, 0.12);
+  --red: #f6465d;
+  --red-dim: rgba(246, 70, 93, 0.12);
+  --accent: #f0b90b;
+  --accent-hover: #d9a60a;
+  --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --radius: 4px;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-0);
+  color: var(--text-0);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ===== Layout ===== */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 1px;
+  background: var(--border);
+  flex: 1;
+}
+
+/* ===== Panels ===== */
+.panel {
+  background: var(--bg-1);
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.panel h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-0);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.panel h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-1);
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+
+.mt { margin-top: 16px; }
+.muted { color: var(--text-2); font-size: 0.85rem; }
+.mono { font-family: var(--font-mono); }
+.green { color: var(--green); }
+.red { color: var(--red); }
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 48px;
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.pair-label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chain-badge {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  background: var(--bg-3);
+  border-radius: var(--radius);
+  color: var(--text-1);
+  font-family: var(--font-mono);
+}
+
+.address-badge {
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  background: var(--bg-3);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: var(--bg-3);
+  color: var(--text-0);
+  transition: background 0.15s;
+}
+
+.btn:hover:not(:disabled) { background: #363d47; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-sm { padding: 4px 10px; font-size: 0.8rem; }
+.btn-full { width: 100%; }
+.btn-primary { background: var(--accent); color: #000; }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-buy { background: var(--green); color: #fff; }
+.btn-buy:hover:not(:disabled) { background: #0db575; }
+.btn-sell { background: var(--red); color: #fff; }
+.btn-sell:hover:not(:disabled) { background: #e03d53; }
+.btn-danger { background: transparent; color: var(--red); border: 1px solid var(--red); padding: 2px 8px; }
+.btn-danger:hover:not(:disabled) { background: var(--red-dim); }
+
+.btn-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* ===== Inputs ===== */
+.input {
+  width: 100%;
+  padding: 7px 10px;
+  background: var(--bg-0);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-0);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  outline: none;
+  margin-bottom: 6px;
+}
+
+.input:focus { border-color: var(--accent); }
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-1);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* ===== Toggle Buttons ===== */
+.toggle-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 8px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: none;
+  background: var(--bg-0);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.toggle-btn.active { background: var(--bg-3); color: var(--text-0); }
+.toggle-btn.buy.active { background: var(--green-dim); color: var(--green); }
+.toggle-btn.sell.active { background: var(--red-dim); color: var(--red); }
+
+/* ===== Balances Panel ===== */
+.balance-section {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.balance-section:last-child { border-bottom: none; }
+
+.balance-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 2px 0;
+}
+
+.balance-row span:first-child { color: var(--text-2); }
+
+/* ===== Order Book ===== */
+.ob-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 30px);
+}
+
+.ob-header-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-2);
+  padding: 4px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ob-asks, .ob-bids {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ob-asks { justify-content: flex-end; }
+
+.ob-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 8px;
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.ob-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.ob-bar-ask { background: var(--red-dim); }
+.ob-bar-bid { background: var(--green-dim); }
+
+.ob-price, .ob-qty {
+  position: relative;
+  z-index: 1;
+}
+
+.ob-ask .ob-price { color: var(--red); }
+.ob-bid .ob-price { color: var(--green); }
+.ob-qty { color: var(--text-1); }
+
+.ob-spread {
+  text-align: center;
+  padding: 6px;
+  font-size: 0.82rem;
+  color: var(--text-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+
+.ob-empty {
+  text-align: center;
+  padding: 12px;
+}
+
+/* ===== Open Orders ===== */
+.open-orders-panel {
+  border-top: 1px solid var(--border);
+  max-height: 260px;
+}
+
+.orders-table, .mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.orders-table th, .mini-table th {
+  text-align: left;
+  padding: 4px 6px;
+  color: var(--text-2);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--border);
+}
+
+.orders-table td, .mini-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--bg-2);
+}
+
+/* ===== Trades List ===== */
+.trades-list {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+/* ===== Toast ===== */
+.toast-container {
+  position: fixed;
+  top: 56px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.toast {
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  max-width: 360px;
+  word-break: break-word;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: slideIn 0.2s ease-out;
+}
+
+.toast-error { background: #3a1520; color: var(--red); border: 1px solid var(--red); }
+.toast-success { background: #0e2a1e; color: var(--green); border: 1px solid var(--green); }
+.toast-info { background: #1a2333; color: #5b9cf5; border: 1px solid #2d5a9e; }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 2px; }
+
+/* ===== Responsive (graceful degrade) ===== */
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
